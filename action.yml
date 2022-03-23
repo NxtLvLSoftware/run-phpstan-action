@@ -1,0 +1,81 @@
+inputs:
+  executable:
+    description: |
+      Specifies the path to the phpstan executable. Defaults to configured $PATH/current working directory.
+    required: true
+    default: phpstan
+  php:
+    description: |
+      Specifies the php binary to run phpstan with. Defaults to configured $PATH/current working directory.
+    required: true
+    default: php
+  memory-limit:
+    description: |
+      Specifies the memory limit in the same format php.ini accepts.
+    required: true
+    default: 1G
+  analyse:
+    description: |
+      A space seperated list of paths to analyse.
+    required: false
+    default: undefined
+  level:
+    description: |
+      Specifies the rule level to run. https://phpstan.org/user-guide/rule-levels
+
+      Possible values: 1-9
+    required: false
+    default: 9
+  config:
+    description: |
+      Path to PHPStan configuration file. Relative paths are resolved based on the current working directory.
+    required: false
+    default: ""
+  debug:
+    description: |
+      Instead of the progress bar, it outputs lines with each analysed file before its analysis.
+    required: false
+    default: "false"
+  quiet:
+    description: |
+      Silences all the output. Useful if you’re interested only in the exit code.
+    required: false
+    default: "false"
+  autoload-file:
+    description: |
+      If your application uses a custom autoloader, you should set it up and register in a PHP file that is
+      passed to this CLI option. Relative paths are resolved based on the current working directory.
+    required: false
+    default: ""
+  error-format:
+    description: |
+      Specifies a custom error formatter. https://phpstan.org/user-guide/output-format
+    required: false
+    default: github
+  ansi:
+    description: |
+      Overrides the autodetection of whether colors should be used in the output and how nice the progress bar should be.
+    required: false
+    default: "true"
+  xdebug:
+    description: |
+      PHPStan turns off XDebug if it’s enabled to achieve better performance.
+    required: false
+    default: "false"
+
+
+outputs:
+  exit-code:
+    description: Exit code provided from executing the analysis.
+  passed:
+    description: True or false depending on the result of the analysis.
+
+name: Run PHPStan
+description: GitHub action for running PHPStan in an actions enviroment.
+author: NxtLvLSoftware Solutions
+branding:
+  icon: settings
+  color: blue
+runs:
+  using: node12
+  main: dist/main.js
