@@ -3,6 +3,14 @@ import * as exec from "@actions/exec"
 import * as fs from "fs";
 import * as path from "path"
 
+async function checkReadable(executable: string): Promise<void> {
+	await fs.access(executable, fs.constants.R_OK, (err) => {
+		if(err) {
+			throw new Error(`${executable} is not readable`);
+		}
+	});
+}
+
 async function checkExecutable(executable: string): Promise<void> {
 	await fs.access(executable, fs.constants.X_OK, (err) => {
 		if(err) {
@@ -18,7 +26,7 @@ export async function run(): Promise<void> {
 	const executable = core.getInput("executable");
 	const phpBin = core.getInput("php");
 
-	await checkExecutable(executable);
+	await checkReadable(executable);
 	await checkExecutable(phpBin);
 
 	const paths = core.getInput("analyse");
