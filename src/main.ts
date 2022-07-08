@@ -30,7 +30,7 @@ export async function run(): Promise<void> {
 	await checkExecutable(phpBin);
 
 	const paths = core.getInput("analyse");
-	const analyse = paths === "undefined";
+	const analyse = paths !== "undefined";
 
 	const level = core.getInput("level");
 	const config = core.getInput("config");
