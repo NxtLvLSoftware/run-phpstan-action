@@ -44,7 +44,7 @@ export async function run(): Promise<void> {
 
 	const result = await exec.exec(`${phpBin} ${executable} ` + (analyse ? "analyse " + paths : "") +
 		(level === "" ? "" : " --level=" + level) +
-		(config === "" ? "" : " --config=" + config) +
+		(config === "" ? "" : " -c=" + config) +
 		(autoloadFile === "" ? "" : " --autoload-file=" + autoloadFile) +
 		(errorFormat === "" ? "" : " --error-format=" + errorFormat) +
 		(memoryLimit === "" ? "" : " --memory-limit=" + memoryLimit) +
