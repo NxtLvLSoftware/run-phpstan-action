@@ -49,8 +49,8 @@ export async function run(): Promise<void> {
 		(memoryLimit === "" ? "" : " --memory-limit=" + memoryLimit) +
 		(xDebug === "" ? "" : " --xdebug") +
 		(debug === "" ? "" : " --debug") +
-		(ansi === "true" ? " --ansi" : " --no-ansi") +
-		(quiet === "true" ? " --quiet" : ""));
+		(ansi === "" ? "" : " --ansi") +
+		(quiet === "" ? "" : " --quiet"));
 
 	core.setOutput("exit-code", result.toString());
 	if (result !== 0) {
