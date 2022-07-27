@@ -2,17 +2,17 @@ inputs:
   executable:
     description: |
       Specifies the path to the phpstan executable. Defaults to configured $PATH/current working directory.
-    required: true
+    required: false
     default: phpstan
   php:
     description: |
       Specifies the php binary to run phpstan with. Defaults to configured $PATH/current working directory.
-    required: true
+    required: false
     default: php
   memory-limit:
     description: |
       Specifies the memory limit in the same format php.ini accepts.
-    required: true
+    required: false
     default: 1G
   analyse:
     description: |
@@ -71,7 +71,7 @@ outputs:
     description: True or false depending on the result of the analysis.
 
 name: Run PHPStan
-description: GitHub action for running PHPStan in an actions enviroment.
+description: GitHub action for running PHPStan in an actions environment.
 author: NxtLvLSoftware Solutions
 branding:
   icon: settings

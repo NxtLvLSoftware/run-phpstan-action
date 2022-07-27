@@ -1,11 +1,10 @@
 import * as core from "@actions/core"
 import * as exec from "@actions/exec"
 import * as fs from "fs";
-import * as path from "path"
 
 async function checkReadable(executable: string): Promise<void> {
 	await fs.access(executable, fs.constants.R_OK, (err) => {
-		if(err) {
+		if (err) {
 			throw new Error(`${executable} is not readable`);
 		}
 	});
@@ -13,7 +12,7 @@ async function checkReadable(executable: string): Promise<void> {
 
 async function checkExecutable(executable: string): Promise<void> {
 	await fs.access(executable, fs.constants.X_OK, (err) => {
-		if(err) {
+		if (err) {
 			throw new Error(`${executable} is not executable`);
 		}
 	});
@@ -54,7 +53,7 @@ export async function run(): Promise<void> {
 		(quiet === "true" ? " --quiet" : ""));
 
 	core.setOutput("exit-code", result.toString());
-	if(result !== 0) {
+	if (result !== 0) {
 		core.setOutput("passed", "false");
 	} else {
 		core.setOutput("passed", "true");
