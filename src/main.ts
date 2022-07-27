@@ -42,7 +42,7 @@ export async function run(): Promise<void> {
 	const ansi = core.getInput("ansi");
 	const quiet = core.getInput("quiet");
 
-	const result = await exec.exec(phpBin, [executable,
+	const result = await exec.exec(`${phpBin} ${executable}`, [
 		(analyse ? "analyse " + paths : ""),
 		(level === "" ? "" : " --level=" + level),
 		(config === "" ? "" : " -c " + config),
