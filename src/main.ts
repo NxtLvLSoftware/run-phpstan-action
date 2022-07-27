@@ -53,14 +53,7 @@ export async function run(): Promise<void> {
 		(xDebug !== "true" ? "" : " --xdebug") +
 		(debug !== "true" ? "" : " --debug") +
 		(ansi !== "true" ? "" : " --ansi") +
-		(quiet !== "true" ? "" : " --quiet"),
-		[], {
-			listeners: {
-				stdout: (data: Buffer) => {
-					core.info(data.toString());
-				}
-			}
-		});
+		(quiet !== "true" ? "" : " --quiet"));
 
 	core.setOutput("exit-code", result.toString());
 	if (result !== 0) {
