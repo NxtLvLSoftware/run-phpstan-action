@@ -1,6 +1,6 @@
 # Action nxtlvlsoftware/run-phpstan
 
-GitHub action for running PHPStan in actions workflows.
+GitHub action for running [PHPStan](https://github.com/phpstan/phpstan) in actions workflows.
 
 | Action Input  | Required | Default   | Description                                                                                                                                                                                          |
 | ------------  |----------| --------  |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

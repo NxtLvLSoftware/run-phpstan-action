@@ -54,12 +54,12 @@ inputs:
     default: github
   ansi:
     description: |
-      Overrides the autodetection of whether colors should be used in the output and how nice the progress bar should be.
+      Overrides the auto-detection of whether colors should be used in the output and how nice the progress bar should be.
     required: false
     default: "true"
   xdebug:
     description: |
-      PHPStan turns off XDebug if it’s enabled to achieve better performance.
+      Phpstan turns off XDebug if it’s enabled to achieve better performance.
     required: false
     default: "false"
 
@@ -71,7 +71,7 @@ outputs:
     description: True or false depending on the result of the analysis.
 
 name: Run PHPStan
-description: GitHub action for running PHPStan in an actions environment.
+description: GitHub action for running phpstan in an actions environment.
 author: NxtLvLSoftware Solutions
 branding:
   icon: settings
