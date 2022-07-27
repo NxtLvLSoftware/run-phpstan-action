@@ -47,7 +47,7 @@ export async function run(): Promise<void> {
 		(config === "" ? "" : " -c " + config) +
 		(autoloadFile === "" ? "" : " --autoload-file=" + autoloadFile) +
 		(errorFormat === "" ? "" : " --error-format=" + errorFormat) +
-		(noProgress !== "true" ? "" : " --no-progress=" + errorFormat) +
+		(noProgress !== "true" ? "" : " --no-progress") +
 		(memoryLimit === "" ? "" : " --memory-limit=" + memoryLimit) +
 		(xDebug !== "true" ? "" : " --xdebug") +
 		(debug !== "true" ? "" : " --debug") +
