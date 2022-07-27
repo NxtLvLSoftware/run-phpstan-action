@@ -42,17 +42,25 @@ export async function run(): Promise<void> {
 	const ansi = core.getInput("ansi");
 	const quiet = core.getInput("quiet");
 
-	const result = await exec.exec(`${phpBin} ${executable} ` + (analyse ? "analyse " + paths : "") +
-		(level === "" ? "" : " --level=" + level) +
-		(config === "" ? "" : " -c " + config) +
-		(autoloadFile === "" ? "" : " --autoload-file=" + autoloadFile) +
-		(errorFormat === "" ? "" : " --error-format=" + errorFormat) +
-		(noProgress !== "true" ? "" : " --no-progress") +
-		(memoryLimit === "" ? "" : " --memory-limit=" + memoryLimit) +
-		(xDebug !== "true" ? "" : " --xdebug") +
-		(debug !== "true" ? "" : " --debug") +
-		(ansi !== "true" ? "" : " --ansi") +
-		(quiet !== "true" ? "" : " --quiet"));
+	const result = await exec.exec(phpBin, [executable,
+		(analyse ? "analyse " + paths : ""),
+		(level === "" ? "" : " --level=" + level),
+		(config === "" ? "" : " -c " + config),
+		(autoloadFile === "" ? "" : " --autoload-file=" + autoloadFile),
+		(errorFormat === "" ? "" : " --error-format=" + errorFormat),
+		(noProgress !== "true" ? "" : " --no-progress"),
+		(memoryLimit === "" ? "" : " --memory-limit=" + memoryLimit),
+		(xDebug !== "true" ? "" : " --xdebug"),
+		(debug !== "true" ? "" : " --debug"),
+		(ansi !== "true" ? "" : " --ansi"),
+		(quiet !== "true" ? "" : " --quiet")],
+		{
+			listeners: {
+				stdout: (data: Buffer) => {
+					core.info(data.toString());
+				}
+			}
+		});
 
 	core.setOutput("exit-code", result.toString());
 	if (result !== 0) {
