@@ -10,11 +10,12 @@ GitHub action for running [PHPStan](https://github.com/phpstan/phpstan) in actio
 | analyse       | false    | undefined | A space seperated list of paths to analyse.                                                                                                                                                          |
 | level         | false    | 9         | Specifies the rule level to run (1-9). https://phpstan.org/user-guide/rule-levels                                                                                                                    |
 | config        | false    |           | Path to PHPStan configuration file. Relative paths are resolved based on the current working directory.                                                                                              |
+| no-progress   | false    | true      | Turns off the progress bar.                                                                                                                                                                          |
 | debug         | false    |           | Instead of the progress bar, it outputs lines with each analysed file before its analysis.                                                                                                           |
 | quiet         | false    |           | Silences all the output. Useful if you’re interested only in the exit code.                                                                                                                          |
 | autoload-file | false    |           | If your application uses a custom autoloader, you should set it up and register in a PHP file that is passed to this CLI option. Relative paths are resolved based on the current working directory. |
 | error-format  | false    | github    | Specifies a custom error formatter. https://phpstan.org/user-guide/output-format                                                                                                                     |
-| ansi          | false    |           | Overrides the autodetection of whether colors should be used in the output and how nice the progress bar should be.                                                                                  |
+| ansi          | false    |           | Overrides the auto-detection of whether colors should be used in the output and how nice the progress bar should be.                                                                                 |
 | xdebug        | false    |           | PHPStan turns off XDebug if it’s enabled to achieve better performance.                                                                                                                              |
 
 ## How to use

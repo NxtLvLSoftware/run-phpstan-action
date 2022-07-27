@@ -31,6 +31,11 @@ inputs:
       Path to PHPStan configuration file. Relative paths are resolved based on the current working directory.
     required: false
     default: ""
+  no-progress:
+    description: |
+      Turns off the progress bar.
+    required: false
+    default: "true"
   debug:
     description: |
       Instead of the progress bar, it outputs lines with each analysed file before its analysis.

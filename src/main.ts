@@ -35,6 +35,7 @@ export async function run(): Promise<void> {
 	const config = core.getInput("config");
 	const autoloadFile = core.getInput("autoload-file");
 	const errorFormat = core.getInput("error-format");
+	const noProgress = core.getInput("no-progress");
 	const memoryLimit = core.getInput("memory-limit");
 	const xDebug = core.getInput("xdebug");
 	const debug = core.getInput("debug");
@@ -46,11 +47,12 @@ export async function run(): Promise<void> {
 		(config === "" ? "" : " -c " + config) +
 		(autoloadFile === "" ? "" : " --autoload-file=" + autoloadFile) +
 		(errorFormat === "" ? "" : " --error-format=" + errorFormat) +
+		(noProgress !== "true" ? "" : " --no-progress=" + errorFormat) +
 		(memoryLimit === "" ? "" : " --memory-limit=" + memoryLimit) +
-		(xDebug === "" ? "" : " --xdebug") +
-		(debug === "" ? "" : " --debug") +
-		(ansi === "" ? "" : " --ansi") +
-		(quiet === "" ? "" : " --quiet"));
+		(xDebug !== "true" ? "" : " --xdebug") +
+		(debug !== "true" ? "" : " --debug") +
+		(ansi !== "true" ? "" : " --ansi") +
+		(quiet !== "true" ? "" : " --quiet"));
 
 	core.setOutput("exit-code", result.toString());
 	if (result !== 0) {
