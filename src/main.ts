@@ -29,8 +29,6 @@ export async function run(): Promise<void> {
 	await checkExecutable(phpBin);
 
 	const paths = core.getInput("analyse");
-	const analyse = paths !== "undefined";
-
 	const level = core.getInput("level");
 	const config = core.getInput("config");
 	const autoloadFile = core.getInput("autoload-file");
@@ -42,8 +40,8 @@ export async function run(): Promise<void> {
 	const ansi = core.getInput("ansi");
 	const quiet = core.getInput("quiet");
 
-	const result = await exec.exec(`${phpBin} ${executable} ` +
-		(analyse ? "analyse " + paths : "") +
+	const result = await exec.exec(`${phpBin} ${executable} analyse ` +
+		(paths !== "undefined" ? paths : "") +
 		(level === "" ? "" : " --level=" + level) +
 		(config === "" ? "" : " -c " + config) +
 		(autoloadFile === "" ? "" : " --autoload-file=" + autoloadFile) +
